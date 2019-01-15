@@ -30,7 +30,7 @@ $ source activate snakemake
 
 # Structure
 
-### Execution
+### Rule execution
 
 The following execution order of **rules** occurs:
 
