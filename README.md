@@ -1,7 +1,7 @@
 # prototype-wes-pipeline
 A placeholder pipeline written in Snakemake
 
-### Installation
+# Installation
 
 I run Snakemake in its own conda environment as per suggestion of the snakemake documentation
 
@@ -16,7 +16,7 @@ $ source activate snakemake
 (snakemake)$ source deactivate
 ```
 
-### Running snakemake
+# Running snakemake
 
 From within your preferred Snakemake environment and within this **prototype-wes-pipeline** directory you can just run the `snakemake` command.
 
@@ -26,7 +26,25 @@ $ source activate snakemake
 (snakemake)$ snakemake
 ```
 
-### Structure
+Since there is a rule all, all you need to do within the directory is run `$ snakemake`
+
+# Structure
+
+#### Execution
+
+The following execution order occurs:
+
+`align_sample > call_snvs > annotate_varians > merge_variants`
+
+**align_samples** - fastq pairs as inputs and a per-sample bam as an output
+
+**call_snvs** - tumor normal bam pairs as inputs and per-group vcf as an output
+
+**annotate_variants** - per-group vcf as an input and per-group maf as an output
+
+**merge_variants** - list of all per-group mafs as an input and a single merged maf as an output
+
+#### Inputs
 
 *input structure is based on current versions of the WES snakemake pipeline*
 
@@ -36,7 +54,7 @@ Paired fastq's are listed as samples in  `config.yaml`
 
 Tumor-normal pairs are defined in `metasheet.csv`
 
-### Outputs
+#### Outputs
 
 Outputs are stored in a `results/` folder and have the following layout
 
