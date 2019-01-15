@@ -7,13 +7,9 @@ Requirements
 
 1. **snakemake** >= 5.3.1
 2. **pandas** and **numpy**
-3. **docker**
+3. **docker** (the alignment step is excuted in a samtools docker)
 
-I run Snakemake in its own conda environment as per suggestion of the snakemake documentation
-
-Packages thus far required packages are **pandas** and **numpy**
-
-The running environment must also have **docker** as the samtools is executed in a docker environment.
+Running Snakemake in its own environment is described in the snakemake documentation
 
 ```
 $ conda create --name snakemake
