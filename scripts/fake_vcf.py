@@ -3,9 +3,9 @@ from uuid import uuid4
 import hashlib, random
 def main(args):
     m1 = md5checksum(args.normal_bam)
-    sys.stderr.write("FASTQ1 MD5: "+m1+"\n")
+    sys.stderr.write("BAM NORMAL MD5: "+m1+"\n")
     m2 = md5checksum(args.tumor_bam)
-    sys.stderr.write("FASTQ2 MD5: "+m2+"\n")
+    sys.stderr.write("BAM TUMOR MD5: "+m2+"\n")
     m3 = md5checksum(args.reference)
     sys.stderr.write("REFERENCE MD5: "+m3+"\n")
     of = open(args.output,'w')

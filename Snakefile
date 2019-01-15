@@ -17,6 +17,9 @@ units['RunName'] = units['RunName'].astype(str)
 units['Tumor'] = units['Tumor'].astype(str)
 units['Normal'] = units['Normal'].astype(str)
 units = units.set_index('RunName')
+
+group = units.index
+
 print(units)
 
 #validate(units,schema="schemas/units.schema.yaml")
