@@ -1,3 +1,8 @@
+# Read inputs and write an maf file
+#
+# Inputs: VCF file, reference file
+# Output: MAF file
+
 import argparse, sys, os
 from uuid import uuid4
 import hashlib, random

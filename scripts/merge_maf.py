@@ -1,3 +1,8 @@
+# Read inputs and write MAF
+# 
+# Inputs: list of maf files
+# Output: merged maf file
+
 import argparse, sys, os
 from uuid import uuid4
 import hashlib, random

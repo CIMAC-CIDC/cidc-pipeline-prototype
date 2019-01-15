@@ -1,3 +1,8 @@
+# Read inputs and write a bam file
+#
+# Inputs: FASTQ1, FASTQ2, reference_file
+# Output: BAM file
+
 import argparse, sys, os
 from uuid import uuid4
 import hashlib, random

@@ -6,7 +6,7 @@ def myfunc(wildcards):
             ref_vars['index'],
             os.getcwd()]
 
-# Use a docker to run the command.
+# Use a docker to run the bam creation
 #
 # Snakemake constraints strictly require the outputs be written
 #   by the same user, so any dockers are going to have to output

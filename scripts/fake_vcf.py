@@ -1,3 +1,8 @@
+# Read inputs and write a vcf out
+#
+# Inputs: Tumor BAM file, Normal BAM file, reference file
+# Output: VCF file
+
 import argparse, sys, os
 from uuid import uuid4
 import hashlib, random
