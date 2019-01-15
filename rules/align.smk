@@ -17,4 +17,4 @@ rule align_sample:
     log:
         "logs/align/{sample}.log"
     shell:
-        "docker run --rm -v $(pwd):$(pwd) vacation/bwasam:0.7.15 python $(pwd)/scripts/fake_align.py {input} -o {output} --alignment_count 1000000"
+        "docker run --rm -v $(pwd):$(pwd) vacation/bwasam:0.7.15 python $(pwd)/scripts/fake_align.py {input} -o {output} --alignment_count 100000"

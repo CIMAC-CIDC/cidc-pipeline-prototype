@@ -1,15 +1,19 @@
-sample  = units.index
-print(ref_vars)
+def get_files(wildcards):
+    return ["results/variants/"+wildcards.samples+".vcf",
+            ref_vars['index'],
+            units.loc[wildcards.samples,'Normal'],
+            units.loc[wildcards.samples,'Tumor']
+           ]
+
 rule annotate_variants:
     input:
-        ref = ref_vars["index"],
-        variant_vcf = "results/variants/{sample}.vcf"
+        get_files
     output:
         maf = "results/annotated_variants/samples/{sample}.maf"
     log:
         "logs/annotated_variants/samples/{sample}.log"
     shell:
-        "echo 'whats this' > {output}"
+        "python scripts/fake_maf.py {input} -o {output} --variant_count 200"
 
 rule merge_variants:
     input:
