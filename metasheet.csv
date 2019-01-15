@@ -1,0 +1,8 @@
+# metasheet.csv- This sheet groups your samples into matched pairs, i.e. "runs"
+# each run requires a RunName and a Normal and a Tumor sample.
+# ***IMPORTANT: for Normal and Tumor columns, use the SampleName defined in
+# config.yaml.
+#
+RunName,Normal,Tumor
+sample-A,sample-A-normal,sample-A-tumor
+sample-B,sample-B-normal,sample-B-tumor
