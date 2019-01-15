@@ -36,13 +36,13 @@ The following execution order of **rules** occurs:
 
 `align_sample > call_snvs > annotate_varians > merge_variants`
 
-**align_samples** - fastq pairs as inputs and a per-sample bam as an output
+**align_samples** - reads fastq pairs as and a reference as inputs. outputs per-sample bam.
 
-**call_snvs** - tumor normal bam pairs as inputs and per-group vcf as an output
+**call_snvs** - tumor normal bam pairs and a reference as inputs. outputs a per-group vcf.
 
-**annotate_variants** - per-group vcf as an input and per-group maf as an output
+**annotate_variants** - per-group vcf as and a reference an inputs.  outputs a per-group maf.
 
-**merge_variants** - list of all per-group mafs as an input and a single merged maf as an output
+**merge_variants** - list of all per-group mafs as an input and a single merged maf as an output.
 
 ### Inputs
 
