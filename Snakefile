@@ -6,13 +6,13 @@ from snakemake.utils import validate, min_version
 # set minimum snakemake version to the version its developed on
 min_version("5.3.1")
 
-# set up global permissions for results files that dockers will write to
-global_permission = ['results/aligned']
-
-for dir in global_permission:
-    if not os.path.exists(dir):
-        os.makedirs(dir)
-        os.chmod(dir,0o777)
+## set up global permissions for results files that dockers will write to
+#global_permission = ['results/aligned']
+#
+#for dir in global_permission:
+#    if not os.path.exists(dir):
+#        os.makedirs(dir)
+#        os.chmod(dir,0o777)
 
 # load config and mastersheet
 
