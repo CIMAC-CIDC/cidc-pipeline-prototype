@@ -1,38 +1,12 @@
 # prototype-wes-pipeline
 A placeholder pipeline written in Snakemake
 
-# Installation
-
-I run Snakemake in its own conda environment as per suggestion of the snakemake documentation
-
-Packages thus far required packages are **pandas** and **numpy**
-
-The running environment must also have **docker** as the samtools is executed in a docker environment.
-
-```
-$ conda create --name snakemake
-$ source activate snakemake
-(snakemake)$ pip3 install snakemake pandas numpy
-(snakemake)$ source deactivate
-```
-
-# Running snakemake
-
-From within your preferred Snakemake environment and within this **prototype-wes-pipeline** directory you can just run the `snakemake` command.
-
-```
-$ cd prototype-wes-pipeline/
-$ source activate snakemake
-(snakemake)$ snakemake
-```
-
-Since there is a rule all, all you need to do within the directory is run `$ snakemake`
 
 # Structure
 
-#### Execution
+### Execution
 
-The following execution order occurs:
+The following execution order of **rules** occurs:
 
 `align_sample > call_snvs > annotate_varians > merge_variants`
 
@@ -44,7 +18,7 @@ The following execution order occurs:
 
 **merge_variants** - list of all per-group mafs as an input and a single merged maf as an output
 
-#### Inputs
+### Inputs
 
 *input structure is based on current versions of the WES snakemake pipeline*
 
@@ -54,7 +28,7 @@ Paired fastq's are listed as samples in  `config.yaml`
 
 Tumor-normal pairs are defined in `metasheet.csv`
 
-#### Outputs
+### Outputs
 
 Outputs are stored in a `results/` folder and have the following layout
 
@@ -81,6 +55,8 @@ results/
 
 Intermediate vcf files produced and stored in `results/variants/` but these are marked as `temp()` and thus are not maintained after the run.  Removing the `temp()` would cause them to be retained.
 
+### Logs
+
 Logs are stored in a `logs/` folder and has the following layout
 
 ```
@@ -99,3 +75,30 @@ logs/
     ├── sample-A.log
     └── sample-B.log
 ```
+
+# Installation
+
+I run Snakemake in its own conda environment as per suggestion of the snakemake documentation
+
+Packages thus far required packages are **pandas** and **numpy**
+
+The running environment must also have **docker** as the samtools is executed in a docker environment.
+
+```
+$ conda create --name snakemake
+$ source activate snakemake
+(snakemake)$ pip3 install snakemake pandas numpy
+(snakemake)$ source deactivate
+```
+
+# Running snakemake
+
+From within your preferred Snakemake environment and within this **prototype-wes-pipeline** directory you can just run the `snakemake` command.
+
+```
+$ cd prototype-wes-pipeline/
+$ source activate snakemake
+(snakemake)$ snakemake
+```
+
+Since there is a rule all, all you need to do within the directory is run `$ snakemake`
