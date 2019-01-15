@@ -11,12 +11,15 @@ Packages thus far required packages are **pandas** and **numpy**
 $ conda create --name snakemake
 $ source activate snakemake
 (snakemake)$ pip3 install snakemake pandas numpy
-(snakemake)$
-```
-
-Deactivate your environment with
-
-```
 (snakemake)$ source deactivate
-$
+```
+
+### Running snakemake
+
+From within your preferred Snakemake environment and within this **prototype-wes-pipeline** directory you can just run the `snakemake` command.
+
+```
+$ cd prototype-wes-pipeline/
+$ source activate snakemake
+(snakemake)$ snakemake
 ```
