@@ -1,6 +1,39 @@
 # prototype-wes-pipeline
 A placeholder pipeline written in Snakemake
 
+# Installation and environment
+
+Requirements
+
+1. snakemake >= 5.3.1
+2. **pandas** and **numpy**
+3. docker
+
+I run Snakemake in its own conda environment as per suggestion of the snakemake documentation
+
+Packages thus far required packages are **pandas** and **numpy**
+
+The running environment must also have **docker** as the samtools is executed in a docker environment.
+
+```
+$ conda create --name snakemake
+$ source activate snakemake
+(snakemake)$ pip3 install snakemake pandas numpy
+(snakemake)$ source deactivate
+```
+
+# Running snakemake
+
+From within your preferred Snakemake environment and within this **prototype-wes-pipeline** directory you can just run the `snakemake` command.
+
+```
+$ cd prototype-wes-pipeline/
+$ source activate snakemake
+(snakemake)$ snakemake
+```
+
+Since there is a rule all, all you need to do within the directory is run `$ snakemake`
+
 
 # Structure
 
@@ -76,29 +109,3 @@ logs/
     └── sample-B.log
 ```
 
-# Installation
-
-I run Snakemake in its own conda environment as per suggestion of the snakemake documentation
-
-Packages thus far required packages are **pandas** and **numpy**
-
-The running environment must also have **docker** as the samtools is executed in a docker environment.
-
-```
-$ conda create --name snakemake
-$ source activate snakemake
-(snakemake)$ pip3 install snakemake pandas numpy
-(snakemake)$ source deactivate
-```
-
-# Running snakemake
-
-From within your preferred Snakemake environment and within this **prototype-wes-pipeline** directory you can just run the `snakemake` command.
-
-```
-$ cd prototype-wes-pipeline/
-$ source activate snakemake
-(snakemake)$ snakemake
-```
-
-Since there is a rule all, all you need to do within the directory is run `$ snakemake`
