@@ -40,7 +40,6 @@ Tumor-normal pairs are defined in `metasheet.csv`
 
 Outputs are stored in a `results/` folder and have the following layout
 
-
 ```
 results/
 ├── aligned
@@ -64,3 +63,21 @@ results/
 
 Intermediate vcf files produced and stored in `results/variants/` but these are marked as `temp()` and thus are not maintained after the run.  Removing the `temp()` would cause them to be retained.
 
+Logs are stored in a `logs/` folder and has the following layout
+
+```
+logs/
+├── align
+│   ├── sample-A-normal.log
+│   ├── sample-A-tumor.log
+│   ├── sample-B-normal.log
+│   └── sample-B-tumor.log
+├── annotated_variants
+│   ├── groups
+│   │   ├── sample-A.log
+│   │   └── sample-B.log
+│   └── merge.log
+└── variants
+    ├── sample-A.log
+    └── sample-B.log
+```
