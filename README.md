@@ -5,9 +5,9 @@ A placeholder pipeline written in Snakemake
 
 Requirements
 
-1. snakemake >= 5.3.1
+1. **snakemake** >= 5.3.1
 2. **pandas** and **numpy**
-3. docker
+3. **docker**
 
 I run Snakemake in its own conda environment as per suggestion of the snakemake documentation
 
@@ -24,16 +24,13 @@ $ source activate snakemake
 
 # Running snakemake
 
-From within your preferred Snakemake environment and within this **prototype-wes-pipeline** directory you can just run the `snakemake` command.
+From within your preferred Snakemake environment and within the `prototype-wes-pipeline/` directory you can just run the `$ snakemake` command since we have a rule all written.
 
 ```
 $ cd prototype-wes-pipeline/
 $ source activate snakemake
 (snakemake)$ snakemake
 ```
-
-Since there is a rule all, all you need to do within the directory is run `$ snakemake`
-
 
 # Structure
 
