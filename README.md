@@ -23,3 +23,12 @@ $ cd prototype-wes-pipeline/
 $ source activate snakemake
 (snakemake)$ snakemake
 ```
+
+### Structure
+
+
+Reference files locations are stored in `cidc_wes/ref.yaml`
+
+Paired fastq's are listed as samples in  `config.yaml`
+
+Tumor-normal pairs are defined in `metasheet.csv`
