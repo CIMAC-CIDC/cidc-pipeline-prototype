@@ -5,8 +5,6 @@ def get_files(wildcards):
     return vals
 
 def get_normal(wildcards):
-    print('param normal')
-    print(wildcards)
     return units.loc[wildcards.group,'Normal']
 def get_tumor(wildcards):
     return units.loc[wildcards.group,'Tumor']
@@ -22,7 +20,7 @@ rule annotate_variants:
     log:
         "logs/annotated_variants/groups/{group}.log"
     shell:
-        "python scripts/fake_maf.py {input} {params.normal} {params.tumor} -o {output} --variant_count 200"
+        "python scripts/fake_maf.py {input} {params.normal} {params.tumor} -o {output} --variant_count 10"
 
 rule merge_variants:
     input:

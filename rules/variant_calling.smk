@@ -1,7 +1,4 @@
 def get_files(wildcards):
-    print('wildcards')
-    print(wildcards)
-    print(wildcards.group)
     return ['results/aligned/'+units.loc[wildcards.group,'Normal']+'.bam',
             'results/aligned/'+units.loc[wildcards.group,'Tumor']+'.bam',
             ref_vars['index']]  
