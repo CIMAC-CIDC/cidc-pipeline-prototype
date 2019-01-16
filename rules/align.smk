@@ -1,6 +1,4 @@
 def myfunc(wildcards):
-    print("get wild")
-    print(str(wildcards))
     return [config['samples'][wildcards.sample][0],
             config['samples'][wildcards.sample][1],
             ref_vars['index'],
