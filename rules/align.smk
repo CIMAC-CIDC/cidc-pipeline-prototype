@@ -20,5 +20,7 @@ rule align_sample:
         bam = "results/aligned/{sample}.bam"
     log:
         "logs/align/{sample}.log"
+    singularity:
+        "docker://vacation/bwasam:0.7.15"
     shell:
-        'docker run -u "$(id -u):$(id -g)" --rm -v $(pwd):$(pwd) vacation/bwasam:0.7.15 python $(pwd)/scripts/fake_align.py {input} -o {output} --alignment_count 100000'
+        'python scripts/fake_align.py {input} -o {output} --alignment_count 100000'
