@@ -26,7 +26,7 @@ rule align_sample:
         script = "scripts/fake_align.py"
     shell:
          """
-         echo "hello world" 1> {output.bam} 2> {log.stderr}
+         echo "hello world" > {output.bam}
          """
 #        "python {params.script} {input} -o {output.bam} --alignment_count 100000 2> {log.stderr} 1>{log.stdout}"
 #        echo "its done" 1> {output.bam} 2> {log}
