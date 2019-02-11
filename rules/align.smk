@@ -21,7 +21,7 @@ rule align_sample:
         stderr = "logs/align/{sample}.stderr.log",
         stdout = "logs/align/{sample}.stdout.log"
     singularity:
-        "docker://us.gcr.io/cidc-biofx/bwasam:0.7.15"
+        "docker://vacation/bwasam:0.7.15"
     params:
         script = "scripts/fake_align.py"
     shell:
