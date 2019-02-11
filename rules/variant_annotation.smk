@@ -1,6 +1,6 @@
 def get_files(wildcards):
     vals = ["results/variants/"+wildcards.group+".vcf",
-            ref_vars['index']
+            ref_vars['index'],'data/resource/downsampled_maf.tsv'
            ]
     return vals
 

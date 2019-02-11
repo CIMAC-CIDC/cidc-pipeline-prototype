@@ -17,7 +17,7 @@ def main(args):
     sys.stderr.write("REFERENCE MD5: "+m3+"\n")
     of = open(args.output,'w')
     of.write(get_header()+"\n")
-    of.write(get_lines(args.normal_name,args.tumor_name,args.variant_count))
+    of.write(get_lines(args.normal_name,args.tumor_name,args.variant_count,args.resource))
     of.close()
 
 def md5checksum(filename, block_size=2**20):
@@ -30,9 +30,9 @@ def md5checksum(filename, block_size=2**20):
     fh.close()
     return md5.hexdigest()
 
-def get_lines(tumor_name,normal_name,variant_count):
+def get_lines(tumor_name,normal_name,variant_count,resource):
     # hardcoding in location of maf data
-    maf = pd.read_csv('data/resource/downsampled_maf.tsv',sep="\t")
+    maf = pd.read_csv(resource,sep="\t")
     maf['Tumor_Sample_Barcode'] = tumor_name
     maf['Matched_Norm_Sample_Barcode'] = normal_name
     maf = maf.sample(variant_count)
@@ -50,6 +50,7 @@ parser.add_argument('--variant_count',type=int,default=10)
 parser.add_argument('-o','--output',required=True)
 parser.add_argument('vcf')
 parser.add_argument('reference')
+parser.add_argument('resource')
 parser.add_argument('normal_name')
 parser.add_argument('tumor_name')
 args = parser.parse_args()

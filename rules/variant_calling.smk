@@ -7,7 +7,7 @@ rule call_snvs:
     input:
         get_files
     output:
-        vcf = temp("results/variants/{group}.vcf")
+        vcf = "results/variants/{group}.vcf"
     log:
         "logs/variants/{group}.log"
     shell:

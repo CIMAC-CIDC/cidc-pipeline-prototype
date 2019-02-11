@@ -1,8 +1,7 @@
 def myfunc(wildcards):
     return [config['samples'][wildcards.sample][0],
             config['samples'][wildcards.sample][1],
-            ref_vars['index'],
-            os.getcwd()]
+            ref_vars['index']]
 
 # Use a docker to run the bam creation
 #
@@ -23,4 +22,5 @@ rule align_sample:
     singularity:
         "docker://vacation/bwasam:0.7.15"
     shell:
-        'python scripts/fake_align.py {input} -o {output} --alignment_count 100000'
+        "sleep 10s && samtools --version > {output.bam}"
+#        'scripts/fake_align.py {input} -o {output.bam} --alignment_count 100000'

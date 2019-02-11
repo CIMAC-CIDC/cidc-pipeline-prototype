@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Read inputs and write a bam file
 #
 # Inputs: FASTQ1, FASTQ2, reference_file
