@@ -18,9 +18,15 @@ rule align_sample:
     output:
         bam = "results/aligned/{sample}.bam"
     log:
-        "logs/align/{sample}.log"
+        stderr = "logs/align/{sample}.stderr.log",
+        stdout = "logs/align/{sample}.stdout.log"
     singularity:
         "docker://vacation/bwasam:0.7.15"
+    params:
+        script = "scripts/fake_align.py"
     shell:
-        "sleep 10s && samtools --version > {output.bam}"
-#        'scripts/fake_align.py {input} -o {output.bam} --alignment_count 100000'
+         "samtools --version > {output.bam} 2> {log}"
+#        "python {params.script} {input} -o {output.bam} --alignment_count 100000 2> {log.stderr} 1>{log.stdout}"
+#        echo "its done" 1> {output.bam} 2> {log}
+#        samtools --version 1> {output.bam} 2> {log}
+#        "sleep 10s && samtools --version > {output.bam}"
