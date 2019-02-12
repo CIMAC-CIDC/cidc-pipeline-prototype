@@ -1,0 +1,15 @@
+{
+    "meta": {
+        "prefix": "DFCI-9999-pt1"
+    },
+    "sample_files": {
+        "tumor_1": "data/run/sample-A-tumor_1.fq.gz",
+        "tumor_2": "data/run/sample-A-tumor_2.fq.gz",
+        "normal_1": "data/run/sample-A-tumor_1.fq.gz",
+        "normal_2": "data/run/sample-A-tumor_2.fq.gz"
+    },
+    "reference_files": {
+        "ref_foo": "data/resource/downsampled_maf.tsv",
+        "ref_bar": "data/references/reference_version_A.txt"
+    }
+}
