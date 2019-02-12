@@ -25,7 +25,7 @@ rule align_sample:
     params:
         script = "scripts/fake_align.py"
     shell:
-        "echo 'hello world' > {output.bam}"
+        "echo 'helo wrld. im a valid bam. pls dnt validate.' 1> {output.bam} 2>{log.stderr}"
 #        "python {params.script} {input} -o {output.bam} --alignment_count 100000 2> {log.stderr} 1>{log.stdout}"
 #        echo "its done" 1> {output.bam} 2> {log}
 #        samtools --version 1> {output.bam} 2> {log}
