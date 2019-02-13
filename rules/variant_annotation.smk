@@ -1,33 +1,13 @@
-def get_files(wildcards):
-    vals = ["results/variants/"+wildcards.group+".vcf",
-            ref_vars['index'],'data/resource/downsampled_maf.tsv'
-           ]
-    return vals
-
-def get_normal(wildcards):
-    return units.loc[wildcards.group,'Normal']
-def get_tumor(wildcards):
-    return units.loc[wildcards.group,'Tumor']
-
 rule annotate_variants:
     input:
-        get_files
-    params:
-        normal = get_normal,
-        tumor = get_tumor
+        ["results/variants/{sample_id}.vcf",
+         inputs['reference_files']['ref_bar'],
+         inputs['reference_files']['ref_foo']
+        ]
     output:
-        maf = "results/annotated_variants/groups/{group}.maf"
+        maf = "results/annotated_variants/{sample_id}.maf"
     log:
-        "logs/annotated_variants/groups/{group}.log"
+        "logs/annotated_variants/{sample_id}.log"
     shell:
-        "python scripts/fake_maf.py {input} {params.normal} {params.tumor} -o {output} --variant_count 10"
+        "python scripts/fake_maf.py {input} NORMAL TUMOR -o {output.maf} --variant_count 10"
 
-rule merge_variants:
-    input:
-        expand("results/annotated_variants/groups/{group}.maf",group=group)
-    output:
-        maf = "results/annotated_variants/merged.maf"
-    log:
-        "logs/annotated_variants/merge.log"
-    shell:
-        "python scripts/merge_maf.py {input} -o {output}"

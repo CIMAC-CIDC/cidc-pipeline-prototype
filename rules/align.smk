@@ -1,7 +1,7 @@
-def myfunc(wildcards):
-    return [config['samples'][wildcards.sample][0],
-            config['samples'][wildcards.sample][1],
-            ref_vars['index']]
+def  get_fastq1(wildcards):
+    return inputs['sample_files']['FASTQ_'+wildcards.group+'_1']
+def  get_fastq2(wildcards):
+    return inputs['sample_files']['FASTQ_'+wildcards.group+'_2']
 
 # Use a docker to run the bam creation
 #
@@ -14,16 +14,16 @@ def myfunc(wildcards):
 #   the permissions.
 rule align_sample:
     input:
-        myfunc
+        fastq_1  = get_fastq1,
+        fastq_2  = get_fastq2,
+        reference  = inputs['reference_files']['ref_bar']
     output:
-        bam = "results/aligned/{sample}.bam"
+        bam = "results/align/{sample_id}-{group}.bam"
     log:
-        stderr = "logs/align/{sample}.stderr.log",
-        stdout = "logs/align/{sample}.stdout.log"
+        stderr = "logs/align/{sample_id}-{group}.stderr.log",
+        stdout = "logs/align/{sample_id}-{group}.stdout.log"
     singularity:
         "docker://vacation/bwasam:0.7.15"
-    params:
-        script = "scripts/fake_align.py"
     shell:
         "echo 'helo wrld. im a valid bam. pls dnt validate.' 1> {output.bam} 2>{log.stderr}"
 #        "python {params.script} {input} -o {output.bam} --alignment_count 100000 2> {log.stderr} 1>{log.stdout}"
