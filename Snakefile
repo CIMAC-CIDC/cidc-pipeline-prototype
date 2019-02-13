@@ -12,17 +12,7 @@ configfile: "config.yaml"
 #validate(config,schema="schemas/config.schema.yaml")
 
 inputs = json.loads(open(config['inputs']).read())
-#units = pd.read_csv('metasheet.csv',comment='#')
-## force strings
-#units['RunName'] = units['RunName'].astype(str)
-#units['Tumor'] = units['Tumor'].astype(str)
-#units['Normal'] = units['Normal'].astype(str)
-#units = units.set_index('RunName')
-
-## define the group wildcard
-#group = ['TUMOR','NORMAL']
 sample_id = inputs['meta']['CIMAC_SAMPLE_ID']
-#validate(units,schema="schemas/units.schema.yaml")
 
 # target rules
 
