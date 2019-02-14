@@ -18,10 +18,10 @@ rule align_sample:
         fastq_2  = get_fastq2,
         reference  = inputs['reference_files']['ref_bar']
     output:
-        bam = "results/{run_id}/align/{sample_id}-{group}.bam"
+        bam = "runs/{run_id}/results/align/{sample_id}-{group}.bam"
     log:
-        stderr = "logs/{run_id}/align/{sample_id}-{group}.stderr.log",
-        stdout = "logs/{run_id}/align/{sample_id}-{group}.stdout.log"
+        stderr = "runs/{run_id}/logs/align/{sample_id}-{group}.stderr.log",
+        stdout = "runs/{run_id}/logs/align/{sample_id}-{group}.stdout.log"
     singularity:
         "docker://vacation/bwasam:0.7.15"
     shell:

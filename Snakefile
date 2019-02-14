@@ -29,7 +29,7 @@ else:
 
 rule all:
     input:
-        "results/"+run_id+"/annotated_variants/"+sample_id+".maf"
+        "runs/"+run_id+"/results/annotated_variants/"+sample_id+".maf"
 
 # Modules
 
