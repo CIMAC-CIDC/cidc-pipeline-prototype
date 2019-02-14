@@ -1,5 +1,5 @@
-import pandas as pd
-import yaml, os, json
+import yaml, os, json, sys
+from uuid import uuid4
 
 from snakemake.utils import validate, min_version
 
@@ -14,11 +14,22 @@ configfile: "config.yaml"
 inputs = json.loads(open(config['inputs']).read())
 sample_id = inputs['meta']['CIMAC_SAMPLE_ID']
 
+# Read the run_id from the inputs json
+#    force it to be a string if its not,
+#    and if it doesn't exist, warn and
+#    assign a uudi4
+
+if 'run_id' not in inputs or not inputs['run_id']:
+    run_id = str(uuid4())
+    sys.stderr.write("Warning: No run_id set. Setting run_id to "+str(run_id)+"\n")
+else:
+    run_id = str(inputs['run_id'])
+
 # target rules
 
 rule all:
     input:
-        "results/annotated_variants/"+sample_id+".maf"
+        "results/"+run_id+"/annotated_variants/"+sample_id+".maf"
 
 # Modules
 
