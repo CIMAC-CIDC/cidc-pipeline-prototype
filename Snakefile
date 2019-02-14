@@ -19,7 +19,7 @@ sample_id = inputs['meta']['CIMAC_SAMPLE_ID']
 #    and if it doesn't exist, warn and
 #    assign a uudi4
 
-if 'run_id' not in inputs or not inputs['run_id']:
+if 'run_id' not in inputs or inputs['run_id'] is None:
     run_id = str(uuid4())
     sys.stderr.write("Warning: No run_id set. Setting run_id to "+str(run_id)+"\n")
 else:
