@@ -1,0 +1,6 @@
+{
+    "BAM_TUMOR": "align/TUMOR",
+    "BAM_NORMAL": "align/NORMAL",
+    "VCF": "variants",
+    "MAF": "annotated_variants"
+}
