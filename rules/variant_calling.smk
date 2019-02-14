@@ -1,8 +1,8 @@
 def get_files(wildcards):
     print('variant calling')
     print(wildcards)
-    return ['runs/{run_id}/results/align/{sample_id}-TUMOR.bam',
-            'runs/{run_id}/results/align/{sample_id}-NORMAL.bam',
+    return ['runs/{run_id}/results/align/TUMOR/{sample_id}-TUMOR.bam',
+            'runs/{run_id}/results/align/NORMAL/x{sample_id}-NORMAL.bam',
             inputs['reference_files']['ref_bar']]  
 
 rule call_snvs:
