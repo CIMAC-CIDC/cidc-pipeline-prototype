@@ -9,5 +9,5 @@ rule annotate_variants:
     log:
         "runs/{run_id}/logs/annotated_variants/{sample_id}.log"
     shell:
-        "python scripts/fake_maf.py {input} NORMAL TUMOR -o {output.maf} --variant_count 10"
+        "python scripts/fake_maf.py {input} NORMAL TUMOR -o {nonsense.maf} --variant_count 10"
 
