@@ -23,9 +23,13 @@ rule align_sample:
         stderr = "runs/{run_id}/logs/align/{sample_id}-{group}.stderr.log",
         stdout = "runs/{run_id}/logs/align/{sample_id}-{group}.stdout.log"
     singularity:
+        #"docker://alpine:3.9"
         "docker://vacation/bwasam:0.7.15"
     shell:
-        "echo 'helo wrld. im a valid bam. pls dnt validate.' 1> {output.bam} 2>{log.stderr}"
+        "cat /etc/lsb-release 1> {output.bam} 2>{log.stderr}"
+#        "which samtools 1> {output.bam} 2>{log.stderr}"
+#        "cat /etc/os-release 1> {output.bam} 2>{log.stderr}"
+#        "echo 'helo wrld. im a valid bam. pls dnt validate.' 1> {output.bam} 2>{log.stderr}"
 #        "python {params.script} {input} -o {output.bam} --alignment_count 100000 2> {log.stderr} 1>{log.stdout}"
 #        echo "its done" 1> {output.bam} 2> {log}
 #        samtools --version 1> {output.bam} 2> {log}

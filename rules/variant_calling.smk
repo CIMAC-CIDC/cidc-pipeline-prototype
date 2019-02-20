@@ -6,6 +6,8 @@ def get_files(wildcards):
             inputs['reference_files']['ref_bar']]  
 
 rule call_snvs:
+    singularity:
+        "docker://ubuntu:18.04"
     input:
         get_files
     output:
@@ -13,4 +15,5 @@ rule call_snvs:
     log:
         "runs/{run_id}/logs/variants/{sample_id}.log"
     shell:
-        "python scripts/fake_vcf.py {input} -o {output} --variant_count 200"
+        "cat /etc/lsb-release 1> {output} 2>{log}"
+        #"python scripts/fake_vcf.py {input} -o {output} --variant_count 200"
